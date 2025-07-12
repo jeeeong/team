@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>편리한 디지털, 불편한 진실</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      background: #fdfdfd;
+      color: #222;
+      line-height: 1.7;
+    }
+    .hero {
+      background: url('images/en.png') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .hero h1 {
+      font-size: 42px;
+      padding: 0 20px;
+    }
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      font-size: 24px;
+      margin-top: 60px;
+      color: #0d47a1;
+      border-left: 5px solid #64b5f6;
+      padding-left: 12px;
+    }
+    p {
+      margin: 20px 0;
+    }
+    .highlight-box {
+      background: #e3f2fd;
+      padding: 16px;
+      border-left: 6px solid #90caf9;
+      font-style: italic;
+    }
+    .back-button-container {
+      text-align: center;
+      margin: 80px 0 100px 0; /* 여유 공간 추가 */
+    }
+    .back-button {
+      background-color: #1976d2;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px; /* 끝이 둥글게 */
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .back-button:hover {
+      background-color: #125ea8;
+    }
+  </style>
+</head>
+<body>
+ <div id="navbar-container"></div>
+
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+      // 현재 페이지 활성화 표시
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+          if (link.getAttribute("href") === path) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+
+
+  <!-- 본문 -->
+  <div class="hero">
+    <h1>에너지 스타: 지속 가능한 제조의 기준</h1>
+  </div>
+
+  <div class="content">
+    <div class="section-title">에너지 스타란?</div>
+    <p>
+      에너지 스타(Energy Star)는 1992년 미국 환경 보호청에서 시작한 고효율 전자제품 인증 프로그램입니다. 
+      반도체 생산과정에서의 과도한 에너지 사용과 온실가스 문제를 해결하기 위해 도입되었습니다.
+    </p>
+
+    <div class="section-title">왜 필요한가?</div>
+    <p>
+      IT  초순수, 불화가스 등 반도체 제조에 필요한 자원은 지구 환경에 심각한 영향을 끼칩니다.
+      에너지 스타는 이 문제를 해결하기 위한 전 세계적 기준이 되었습니다.
+
+    <div class="highlight-box">
+      "에너지 스타 로고가 있는 제품은 최대 30%까지 에너지를 절약합니다."
+    </div>
+
+    <div class="section-title">지속 가능한 미래로 가는 길</div>
+    <p>
+      기업들이 에너지 스타 인증을 획득함으로써 친환경 경쟁력을 확보하고,
+      소비자는 환경에 대한 책임 있는 소비를 실천할 수 있습니다.
+    </p>
+  </div>
+
+  <div class="back-button-container">
+    <a href="solutions.html" class="back-button">다른 해결방안 보기</a>
+  </div>
+</body>
+</html>

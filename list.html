@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>누구나 실천할 수 있는 해결방안</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      background-color: #f9fdfc;
+      color: #222;
+    }
+
+    .content-wrapper {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0d47a1;
+      margin-bottom: 40px;
+    }
+
+    .solution-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .solution-item {
+      background: #e3f2fd;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .solution-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .solution-item h3 {
+      color: #1976d2;
+      margin-bottom: 12px;
+    }
+
+    .solution-item p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 60px;
+      text-align: center;
+      padding: 12px 24px;
+      background-color: #1976d2;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+
+    .back-button:hover {
+      background-color: #0d47a1;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-container"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+          if (link.getAttribute("href") === path) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+
+  <div class="content-wrapper">
+    <h1>누구나 실천할 수 있는 해결방안</h1>
+
+    <div class="solution-list">
+      <div class="solution-item">
+        <h3>전기 소비 줄이기</h3>
+        <p>화면 밝기를 낮추고, 절전 모드를 설정하며, 사용하지 않을 때는 전원을 끄는 등 작은 실천이 전기 소비를 줄이는데 큰 효과를 가져올 수 있다.</p>
+      </div>
+      <div class="solution-item">
+        <h3>자원의 낭비 줄이기</h3>
+        <p>사용하지 않는 전자기기는 버리는 대신 중고로 판매하거나 기부하는 것이 바람직하다. 이는 자원의 낭비를 줄일 뿐만 아니라, 사회적으로도 의미 있는 나눔이 될 수 있다.</p>
+      </div>
+      <div class="solution-item">
+        <h3>분리배출 정확히 하기</h3>
+        <p>만약 기기를 폐기해야 할 경우에는 반드시 전자제품 전용 수거함이나 지정된 장소에 분리 배출하여 유해 물질이 자연으로 유출되지 않도록 해야 한다.</p>
+      </div>
+      <div class="solution-item">
+        <h3>에너지 효율 제품 구매하기</h3>
+        <p>전자기기를 새로 구매할 때는 에너지 효율 등급이나 친환경 인증 마크가 부착된 제품을 선택하는 것도 좋은 방법이다. 이러한 제품은 더 적은 전력으로 높은 성능을 낼 수 있어 환경에도 도움이 된다.</p>
+      </div>
+      <div class="solution-item">
+        <h3>정리하는 습관 갖기</h3>
+        <p>클라우드 서비스나 이메일, 대용량 파일 전송 등 우리가 무심코 사용하는 디지털 서비스도 많은 에너지를 소비한다는 사실을 인식하고, 불필요한 데이터 저장을 줄이고 주기적으로 정리하는 습관을 갖는 것도 중요하다.</p>
+      </div>
+      <div class="solution-item">
+        <h3>전자기기 오래 사용하기</h3>
+        <p>불필요한 전자기기 구매를 자제하는 태도가 필요하다. 최신 모델이라는 이유만으로 기기를 자주 교체하기보다 지금 사용 중인 컴퓨터나 노트북을 더 오래 사용할 수 있도록 관리하고 최적화하는 노력이 필요하다.</p>
+      </div>
+    </div>
+
+    <div class="center">
+      <a href="solutions.html" class="back-button">← 해결방안 메인으로</a>
+    </div>
+  </div>
+</body>
+</html>

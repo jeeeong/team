@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>편리한 디지털, 불편한 진실</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+      // 현재 페이지 활성화 표시
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+          if (link.getAttribute("href") === path) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+
+
+  <main class="container">
+    <section class="hero center-hero">
+      <h1>🌍 디지털 세상의 그림자</h1>
+      <h2>컴퓨터가 만드는 환경 오염과 해결책</h2>
+      <p>우리가 매일 사용하는 컴퓨터는 편리함을 주지만,<br>
+         동시에 보이지 않는 환경오염을 일으키고 있습니다.</p>
+    </section>
+
+    <section class="cards">
+      <div class="card green">
+        <h2>컴퓨터는 왜 환경을 오염시킬까?</h2>
+        <p>제조부터 사용, 폐기까지 전 과정에서 다양한 환경문제가 발생합니다.</p>
+        <a href="pollution.html" class="button btn-green">환경오염 알아보기</a>
+      </div>
+
+      <div class="card yellow">
+        <h2>우리는 무엇을 할 수 있을까?</h2>
+        <p>컴퓨터를 친환경적으로 사용하고 폐기하는 방법은 무엇일까요?</p>
+        <a href="solutions.html" class="button btn-orange">해결방안 보기</a>
+      </div>
+
+      <div class="card red">
+        <h2>퀴즈로 확인해보세요!</h2>
+        <p>이제 얼마나 알고 있나요? 퀴즈로 확인해볼까요?</p>
+        <a href="quiz.html" class="button btn-red">퀴즈 풀기</a>
+      </div>
+
+      <div class="card border-blue">
+        <h2>느낀점</h2>
+        <p>환경오염에 대해 배우며 느낀 점을 공유해요.</p>
+        <a href="reflection.html" class="button btn-blue">자세히 보기</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 편리한 디지털, 불편한 진실.</p>
+  </footer>
+
+  <script>
+    const path = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll("nav a");
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === path) {
+      link.classList.add("active");
+    }
+  });
+  </script>
+
+</body>
+</html>

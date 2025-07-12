@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>편리한 디지털, 불편한 진실</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f0f8ff;
+      overflow-x: hidden;
+    }
+
+    .slide-container {
+      display: flex;
+      width: 300vw; /* 3슬라이드 */
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      flex: 0 0 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 50px;
+    }
+
+    .slide img {
+      width: 40vw;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 20px;
+    }
+
+    .text-box {
+      max-width: 40vw;
+    }
+
+    .text-box h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #0d47a1;
+    }
+
+    .text-box p {
+      font-size: 28px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .nav-buttons {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-buttons button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+      // 현재 페이지 활성화 표시
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+          if (link.getAttribute("href") === path) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+
+  <div id="slides" class="slide-container">
+    <!-- Slide 1: 제조 -->
+    <section class="slide">
+      <img src="images/earth.jpeg" alt="제조 과정" />
+      <div class="text-box">
+        <h2>1️⃣ 제조 과정</h2>
+        <p>
+          컴퓨터를 만들기 위해서는 반도체, 금속, 플라스틱, 희토류 등 여러 원재료들이 필요하다. 
+          이를 얻기 위해 자원을 채굴하는 과정에서 토양 오염과 수질 오염, 생태계 파괴가 일어나고, 장기적으로, 한정적인 자원들을을 무분별하게 소비하여 고갈시킨다.<br />
+          또한 반도체와 부품을 생산하는 과정에서는 막대한 양의 물과 에너지를 사용하는데, 특히, 정교한 고성능 반도체을 위해 사용하는 매우 깨끗한 물 “초순수“는 일부 공정에서 사용하는 
+          불화가스(PFCs)나 삼불화질소(NF₃)는 강력한 온실효과를 유발한다.
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 2: 사용 -->
+    <section class="slide">
+      <img src="images/data.png" alt="사용 과정" />
+      <div class="text-box">
+        <h2>2️⃣ 사용 과정</h2>
+        <p>
+          IT 산업의 전력 소비량이 전 세계 전력 소비량의 7%에 육박하는 전력을 사용한다. 데이터 센터와 같은 대규모 서버는 24시간 가동되어 우리가 유튜브, 넷플릭스 같은 온라인 서비스를 
+          이용할 때마다 검색, 클라우드 서비스, 온라인 게임, VOD 등 온라인상의 모든 데이터를 저장하고 전송하지만 이 과정에서만 많은 전력을 사용하는 것은 아니다.<br />
+          또한 데이터 센터는 대규모의 전력과 함께 막대한 열을 방출하는데, 열에 취약한 서버 컴퓨터를 냉각시키기 위해 냉방에 가장 많은 전력을 소비하고 막대한 탄소 배출량을 발생시킨다.
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 3: 폐기 -->
+    <section class="slide">
+      <img src="images/trash.jpeg" alt="폐기 과정" />
+      <div class="text-box">
+        <h2>3️⃣ 폐기 과정</h2>
+        <p>
+          컴퓨터가 수명을 다하거나 교체되면 대부분 폐전자제품(E-waste)로 버려지는데, 이때 가장 큰 문제는 유해물질 누출이다. 
+          컴퓨터에 포함된 납, 카드뮴, 수은, 크롬 등의 유해 중금속 등은 제대로 처리되지 않고 매립되거나 불법적으로 소각될 경우 토양과 지하수, 대기를 오염시킬 수 있다. <br />
+          또한, 폐기된 컴퓨터는 대부분 재활용률이 매우 낮아 일반 쓰레기처럼 버리거나, 분리되지 않고 폐기되고 낭비된다. 
+          특히 희토류 같이 희소하고 한정적인 자원은 새로 채굴하는 데 엄청난 비용과 환경 부담이 따르기 때문에 재활용이 매우 중요함에도, 충분히 이루어지지 않고 있다.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <div class="nav-buttons">
+    <button onclick="moveSlide(-1)">&larr; 이전</button>
+    <button onclick="moveSlide(1)">다음 &rarr;</button>
+  </div>
+
+  <script>
+    let index = 0;
+    function moveSlide(direction) {
+      const totalSlides = 3;
+      index += direction;
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+      document.getElementById('slides').style.transform = `translateX(-${index * 100}vw)`;
+    }
+  </script>
+
+  <script>
+    const path = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll("nav a");
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === path) {
+      link.classList.add("active");
+    }
+  });
+  </script>
+</body>
+</html>

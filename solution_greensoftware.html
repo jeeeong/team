@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>편리한 디지털, 불편한 진실</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      background: #fdfdfd;
+      color: #222;
+      line-height: 1.7;
+    }
+    .hero {
+      background: url('images/green.avif') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .hero h1 {
+      font-size: 42px;
+      padding: 0 20px;
+    }
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      font-size: 24px;
+      margin-top: 60px;
+      color: #0d47a1;
+      border-left: 5px solid #64b5f6;
+      padding-left: 12px;
+    }
+    p {
+      margin: 20px 0;
+    }
+    .highlight-box {
+      background: #e3f2fd;
+      padding: 16px;
+      border-left: 6px solid #90caf9;
+      font-style: italic;
+    }
+    .back-button-container {
+      text-align: center;
+      margin: 80px 0 100px 0; /* 여유 공간 추가 */
+    }
+    .back-button {
+      background-color: #1976d2;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px; /* 끝이 둥글게 */
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .back-button:hover {
+      background-color: #125ea8;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+      // 현재 페이지 활성화 표시
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+          if (link.getAttribute("href") === path) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+
+
+  <!-- 본문 -->
+  <div class="hero">
+    <h1>그린 소프트웨어: 친환경 IT의 핵심</h1>
+  </div>
+
+  <div class="content">
+    <div class="section-title">그린 소프트웨어란?</div>
+    <p>
+      그린 소프트웨어는 저전력 시스템, 자동화된 업무과정 등을 통해 에너지를 절약하고 유해물질 배출을 줄이는 친환경 소프트웨어입니다.
+      기업들이 환경 문제에 대응하면서 동시에 운영 효율성을 높이기 위해 주목하고 있습니다.
+    </p>
+
+    <div class="section-title">왜 필요한가?</div>
+    <p>
+      IT 산업은 막대한 전력을 소비하며, 특히 데이터 센터의 냉방 시스템 등에서 에너지 소모가 큽니다. 
+      알고리즘 최적화, 클라우드 최적화 등을 통해 이러한 자원 낭비를 줄이고 탄소 배출량을 감소시킬 수 있습니다.
+    </p>
+
+    <div class="highlight-box">
+      "알고리즘 개선만으로도 최대 30%의 에너지를 절감할 수 있습니다."
+    </div>
+
+    <div class="section-title">어떻게 실현할 수 있을까?</div>
+    <p>
+      기업들은 클라우드 오토스케일링, 서버리스 아키텍처, AI 모델 경량화 등 다양한 기술을 통해 
+      그린 소프트웨어를 구현하고 있으며, 이는 운영비용 절감과 브랜드 가치 상승으로 이어지고 있습니다.
+    </p>
+  </div>
+
+  <div class="back-button-container">
+    <a href="solutions.html" class="back-button">다른 해결방안 보기</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>해결방안 - 편리한 디지털, 불편한 진실</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="solutions-page">
+  <div id="navbar-container"></div>
+
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+      // 현재 페이지 활성화 표시
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+          if (link.getAttribute("href") === path) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+
+
+  <main class="container">
+    <section class="hero center-hero">
+      <h1>🌿 해결방안</h1>
+      <p>컴퓨터의 환경문제를 해결할 수 있는 방안들을 알아봅시다.</p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h2><a href="solution_energystar.html">에너지 스타</a></h2>
+      </div>
+      <div class="card">
+        <h2><a href="solution_greensoftware.html">그린 소프트웨어</a></h2>
+      </div>
+      <div class="card">
+        <h2><a href="solution_deepgreen.html">딥 그린</a></h2>
+      </div>
+      <div class="card">
+        <h2><a href="solution_fairphone.html">페어폰</a></h2>
+      </div>
+      <div class="card">
+        <h2><a href="list.html">일상 속 해결방안</a></h2>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 편리한 디지털, 불편한 진실</p>
+  </footer>
+
+  <script>
+    const path = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll("nav a");
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === path) {
+      link.classList.add("active");
+    }
+  });
+  </script>
+</body>
+</html>
