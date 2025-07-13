@@ -422,3 +422,11 @@ nav a.active {
   transform: scale(1);
   transition: all 0.3s ease;
 }
+
+.quiz-card.locked .card-inner {
+  pointer-events: none; /* 처음엔 뒤집히지 않도록 막음 */
+}
+
+.quiz-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
