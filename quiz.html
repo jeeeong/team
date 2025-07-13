@@ -145,12 +145,12 @@
 
   <div class="quiz-container">
     <!-- 카드 반복 -->
-    <div class="quiz-card locked" onclick="unlockAndFlip(this)">
+    <div class="quiz-card locked">
       <div class="card-inner">
         <div class="card-front">
           <h3>문제 1</h3>
           <p>컴퓨터 제조 과정에서 많이 사용되는 물질로, 온실가스를 많이 배출하는 공정에 사용되는 매우 깨끗한 물을 무엇이라고 하나요?</p>
-          <button>정답 보기</button>
+          <button onclick="unlockAndFlip(this)">정답 보기</button>
         </div>
         <div class="card-back">
           <h3>초순수</h3>
