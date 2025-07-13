@@ -140,13 +140,15 @@
   </style>
 </head>
 <body>
-  <div id="navbar-container"></div>
+<div id="navbar-container"></div>
 
   <script>
     fetch('header.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById('navbar-container').innerHTML = data;
+
+      // 현재 페이지 활성화 표시
         const path = window.location.pathname.split("/").pop();
         document.querySelectorAll("nav a").forEach(link => {
           if (link.getAttribute("href") === path) {
