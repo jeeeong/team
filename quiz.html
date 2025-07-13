@@ -244,16 +244,16 @@
   </div>
 
   <script>
-  function unlockAndFlip(card) {
-    if (card.classList.contains('locked')) {
-      card.classList.remove('locked');
-      card.classList.add('unlocked');
-    }
+    function unlockAndFlip(button) {
+      const card = button.closest('.quiz-card');
 
-    if (card.classList.contains('unlocked')) {
-      card.classList.toggle('flipped');
+      if (card.classList.contains('locked')) {
+        card.classList.remove('locked');
+        card.classList.add('flipped');
+      } else {
+        card.classList.toggle('flipped');
+      }
     }
-  }
   </script>
 </body>
 </html>
