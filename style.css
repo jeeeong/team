@@ -426,6 +426,32 @@ nav a.active {
 .quiz-card.locked .card-inner {
   pointer-events: none; /* 처음엔 뒤집히지 않도록 막음 */
 }
+.quiz-wrapper {
+  text-align: center;
+  margin-top: 80px;
+}
+
+#start-btn, #next-btn {
+  background-color: #1976d2;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: inline-block;
+}
+
+.quiz-card {
+  width: 320px;   /* ✅ 확대 */
+  height: 380px;  /* ✅ 확대 */
+  margin: 0 auto;
+  perspective: 1000px;
+  position: relative;
+  display: none;
+}
+
 
 .quiz-card.flipped .card-inner {
   transform: rotateY(180deg);
