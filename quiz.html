@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>환경오염 퀴즈</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -140,18 +141,19 @@
 </head>
 <body>
 
-  <header>
-    <div class="nav-container">
-      <div class="logo">편리한 디지털, 불편한 진실</div>
-      <nav>
-        <a href="index.html">홈</a>
-        <a href="pollution.html">환경오염</a>
-        <a href="solutions.html">해결방안</a>
-        <a href="quiz.html" class="active">퀴즈</a>
-        <a href="reflection.html">느낀점</a>
-      </nav>
-    </div>
-  </header>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+        const path = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+          if (link.getAttribute("href") === path) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
 
   <div class="quiz-wrapper">
     <button id="start-btn">퀴즈 시작하기</button>
