@@ -244,9 +244,16 @@
   </div>
 
   <script>
-    function flipCard(card) {
+  function unlockAndFlip(card) {
+    if (card.classList.contains('locked')) {
+      card.classList.remove('locked');
+      card.classList.add('unlocked');
+    }
+
+    if (card.classList.contains('unlocked')) {
       card.classList.toggle('flipped');
     }
+  }
   </script>
 </body>
 </html>
